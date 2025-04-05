@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Exchange - Frontend Demo</title >
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg demo-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">COMMUNITY <span>EXCHANGE</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showPage('home'); return false;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('marketplace'); return false;">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('login'); return false;">
+                            <i class="bi bi-person-circle"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="demo-container">
+            <!-- Hero Banner -->
+            <div class="hero-banner mb-5">
+                <div class="container">
+                    <span class="best-offer">BEST OFFER</span>
+                    <h1>NEW ARRIVALS ON SALE</h1>
+                    <p>Join our community of neighbors helping neighbors through trading, sharing, and supporting local resources.</p>
+                    <a href="#" onclick="showPage('marketplace'); return false;" class="btn btn-primary btn-lg">Browse Marketplace</a>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- Featured Listings -->
+                <div class="mb-5">
+                    <h2 class="section-title">Featured Listings</h2>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Laptop" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Laptop for Trade</h5>
+                                    <p class="card-text text-muted small">Slightly used laptop in good condition...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs300</span>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="showPage('listing-detail')">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Handyman Services" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Handyman Services</h5>
+                                    <p class="card-text text-muted small">Offering handyman services for small repairs...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs25/hr</span>
+                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Book Collection" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Book Collection</h5>
+                                    <p class="card-text text-muted small">Collection of fiction books in excellent condition...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-success">Free</span>
+                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Mountain Bike" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Mountain Bike</h5>
+                                    <p class="card-text text-muted small">Adult mountain bike, good condition, recently serviced...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs150</span>
+                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Products -->
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wooden Chair" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Wooden Chair</h5>
+                                    <p class="card-text text-muted small">Handcrafted wooden chair, minimal design...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs75</span>
+                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Camera" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Vintage Camera</h5>
+                                    <p class="card-text text-muted small">Vintage film camera in working condition, collector's item...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs120</span>
+                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1551298370-9d3d53740c72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gardening Tools" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Gardening Tools</h5>
+                                    <p class="card-text text-muted small">Complete set of gardening tools, barely used...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs45</span>
+                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Tutoring Services" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Math Tutoring</h5>
+                                    <p class="card-text text-muted small">Experienced math tutor for high school and college students...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs30/hr</span>
+                                        <button class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials Section -->
+                <div class="mt-5 py-4">
+                    <h2 class="section-title">Community Testimonials</h2>
+                    <div class="row g-4">
+                        <!-- Testimonial cards remain the same -->
+                    </div>
+                </div>
+                
+                <!-- Footer Section -->
+                <footer class="mt-5 pt-5 pb-4 bg-light">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 mb-4">
+                                <h5 class="mb-3">About Aarya</h5>
+                                <p class="text-muted">Aarya is a community-based platform that helps people exchange goods and services locally, reducing waste and building stronger communities.</p>
+                                <div class="social-icons mt-3">
+                                    <a href="#" class="me-2 text-dark"><i class="bi bi-facebook"></i></a>
+                                    <a href="#" class="me-2 text-dark"><i class="bi bi-twitter"></i></a>
+                                    <a href="#" class="me-2 text-dark"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" class="me-2 text-dark"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 mb-4">
+                                <h5 class="mb-3">Quick Links</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Home</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Marketplace</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Community</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Events</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-4 mb-4">
+                                <h5 class="mb-3">Support</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Help Center</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Safety Tips</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">FAQs</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-md-4 mb-4">
+                                <h5 class="mb-3">Newsletter</h5>
+                                <p class="text-muted">Stay updated with our latest news and events</p>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="Your email" aria-label="Your email">
+                                    <button class="btn btn-primary" type="button">Subscribe</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6 text-center text-md-start">
+                                <p class="text-muted mb-0">&copy; 2023 Aarya. All rights reserved.</p>
+                            </div>
+                            <div class="col-md-6 text-center text-md-end">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                                    <li class="list-inline-item"><span class="text-muted">|</span></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-muted">Terms of Use</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Marketplace Page -->
+        <div id="marketplace" class="demo-container" style="display: none;">
+            <div class="page-title">Marketplace</div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Filters</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Type</label>
+                                    <select name="type" class="form-select">
+                                        <option value="">All Types</option>
+                                        <option value="item">Items</option>
+                                        <option value="service">Services</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Category</label>
+                                    <select name="category" class="form-select">
+                                        <option value="">All Categories</option>
+                                        <option value="electronics">Electronics</option>
+                                        <option value="furniture">Furniture</option>
+                                        <option value="clothing">Clothing</option>
+                                        <option value="books">Books</option>
+                                        <option value="services">Services</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Condition</label>
+                                    <select name="condition" class="form-select">
+                                        <option value="new">New</option>
+                                        <option value="like-new">Like New</option>
+                                        <option value="good">Good</option>
+                                        <option value="fair">Fair</option>
+                                        <option value="poor">Poor</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" name="location" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="freeItemsOnly">
+                                        <label class="form-check-label" for="freeItemsOnly">
+                                            Free items only
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="localPickupOnly">
+                                        <label class="form-check-label" for="localPickupOnly">
+                                            Local pickup only
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <span class="text-muted">Showing 1-12 of 48 listings</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <select class="form-select form-select-sm">
+                                <option>Sort by: Newest</option>
+                                <option>Sort by: Price (Low to High)</option>
+                                <option>Sort by: Price (High to Low)</option>
+                                <option>Sort by: Most Popular</option>
+                            </select>
+                            <button class="btn btn-sm btn-outline-primary" onclick="showPage('create-listing'); return false;">
+                                <i class="bi bi-plus-circle"></i> Create Listing
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        <!-- Marketplace Listings -->
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Laptop" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Laptop for Trade</h5>
+                                    <p class="card-text text-muted small">Slightly used laptop in good condition...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs300</span>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="showPage('listing-detail'); return false;">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Handyman Services" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Handyman Services</h5>
+                                    <p class="card-text text-muted small">Offering handyman services for small repairs...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs25/hr</span>
+                                        <button class="btn btn-sm btn-outline-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Book Collection" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Book Collection</h5>
+                                    <p class="card-text text-muted small">Collection of fiction books in excellent condition...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-success">Free</span>
+                                        <button class="btn btn-sm btn-outline-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Mountain Bike" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Mountain Bike</h5>
+                                    <p class="card-text text-muted small">Adult mountain bike, good condition, recently serviced...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs150</span>
+                                        <button class="btn btn-sm btn-outline-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wooden Chair" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Wooden Chair</h5>
+                                    <p class="card-text text-muted small">Handcrafted wooden chair, minimal design...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs75</span>
+                                        <button class="btn btn-sm btn-outline-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="card h-100 listing-card">
+                                <div class="card-img-top bg-light text-center py-4">
+                                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Camera" class="img-fluid" style="height: 180px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Vintage Camera</h5>
+                                    <p class="card-text text-muted small">Vintage film camera in working condition, collector's item...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">Rs120</span>
+                                        <button class="btn btn-sm btn-outline-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login" class="demo-container" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Login</h2>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Login</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <a href="#" class="text-decoration-none">Forgot password?</a>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <p>Don't have an account?</p>
+                                <button class="btn btn-outline-primary" onclick="showPage('register'); return false;">Create Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register" class="demo-container" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Create Account</h2>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="registerEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="registerPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="termsAgree" required>
+                                    <label class="form-check-label" for="termsAgree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <p>Already have an account?</p>
+                                <button class="btn btn-outline-primary" onclick="showPage('login'); return false;">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listing Detail Page -->
+        <div id="listing-detail" class="demo-container" style="display: none;">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2 class="card-title mb-0">Laptop for Trade</h2>
+                                <span class="badge bg-primary fs-5">Rs300</span>
+                            </div>
+                            <p class="text-muted mb-4">Posted 3 days ago in Electronics</p>
+                            
+                            <div id="listingCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="Laptop Image 1" style="height: 400px; object-fit: contain;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="Laptop Image 2" style="height: 400px; object-fit: contain;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="Laptop Image 3" style="height: 400px; object-fit: contain;">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#listingCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#listingCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            
+                            <h5>Description</h5>
+                            <p>Slightly used laptop in good condition. 15.6" display, Intel i5 processor, 8GB RAM, 256GB SSD. Battery life is still excellent (about 6 hours). Comes with charger and laptop sleeve.</p>
+                            <p>Perfect for students or anyone needing a reliable laptop for everyday tasks. Minor scratch on the bottom that doesn't affect performance.</p>
+                            
+                            <h5 class="mt-4">Details</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li><strong>Condition:</strong> Good</li>
+                                        <li><strong>Brand:</strong> Dell</li>
+                                        <li><strong>Model:</strong> Inspiron 15</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li><strong>Age:</strong> 2 years</li>
+                                        <li><strong>Pickup Only:</strong> Yes</li>
+                                        <li><strong>Location:</strong> Downtown</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Contact Seller</h5>
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Seller" class="rounded-circle me-3" width="50" height="50">
+                                <div>
+                                    <h6 class="mb-0">John Doe</h6>
+                                    <p class="text-muted mb-0 small">Member since Jan 2023</p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary w-100 mb-2">
+                                    <i class="bi bi-chat-dots"></i> Message
+                                </button>
+                                <button class="btn btn-outline-primary w-100">
+                                    <i class="bi bi-telephone"></i> Show Phone Number
+                                </button>
+                            </div>
+                            <div class="d-flex justify-content-between text-center">
+                                <div>
+                                    <h6 class="mb-0">15</h6>
+                                    <small class="text-muted">Listings</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">4.8</h6>
+                                    <small class="text-muted">Rating</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">98%</h6>
+                                    <small class="text-muted">Response</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Safety Tips</h5>
+                            <ul class="small text-muted">
+                                <li>Meet in a public place</li>
+                                <li>Don't pay in advance</li>
+                                <li>Check the item before paying</li>
+                                <li>Report suspicious behavior</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Similar Listings</h5>
+                            <div class="small-listing d-flex mb-2 p-2 border-bottom">
+                                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60" alt="Similar Item" class="me-2" width="60" height="60" style="object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-0 small">Gaming Laptop</h6>
+                                    <span class="badge bg-primary">Rs450</span>
+                                </div>
+                            </div>
+                            <div class="small-listing d-flex mb-2 p-2 border-bottom">
+                                <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60" alt="Similar Item" class="me-2" width="60" height="60" style="object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-0 small">Tablet with Keyboard</h6>
+                                    <span class="badge bg-primary">Rs200</span>
+                                </div>
+                            </div>
+                            <div class="small-listing d-flex p-2">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60" alt="Similar Item" class="me-2" width="60" height="60" style="object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-0 small">Desktop Computer</h6>
+                                    <span class="badge bg-primary">Rs350</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Listing Page -->
+        <div id="create-listing" class="demo-container" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-body p-4">
+                            <h2 class="card-title text-center mb-4">Create New Listing</h2>
+                            <form>
+                                <div class="mb-4">
+                                    <h5>Basic Information</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="listingTitle" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="listingTitle" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="listingCategory" class="form-label">Category</label>
+                                            <select class="form-select" id="listingCategory" required>
+                                                <option value="" selected disabled>Select a category</option>
+                                                <option value="electronics">Electronics</option>
+                                                <option value="furniture">Furniture</option>
+                                                <option value="clothing">Clothing</option>
+                                                <option value="books">Books</option>
+                                                <option value="services">Services</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="listingCondition" class="form-label">Condition</label>
+                                            <select class="form-select" id="listingCondition">
+                                                <option value="new">New</option>
+                                                <option value="like-new">Like New</option>
+                                                <option value="good">Good</option>
+                                                <option value="fair">Fair</option>
+                                                <option value="poor">Poor</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="listingPrice" class="form-label">Price (Rs)</label>
+                                            <input type="number" class="form-control" id="listingPrice" required>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="checkbox" id="freeItem">
+                                                <label class="form-check-label" for="freeItem">
+                                                    This is a free item
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Description</h5>
+                                    <textarea class="form-control" id="listingDescription" rows="4" required></textarea>
+                                    <div class="form-text">Provide a detailed description of your item or service.</div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Photos</h5>
+                                    <div class="mb-3">
+                                        <label for="listingPhotos" class="form-label">Upload Photos (up to 5)</label>
+                                        <input class="form-control" type="file" id="listingPhotos" multiple accept="image/*">
+                                    </div>
+                                    <div class="row row-cols-2 row-cols-md-4 g-2 mt-2">
+                                        <div class="col">
+                                            <div class="border rounded p-2 text-center bg-light" style="height: 100px; display: flex; align-items: center; justify-content: center;">
+                                                <i class="bi bi-plus-lg fs-3 text-muted"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Contact & Location</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="listingLocation" class="form-label">Location</label>
+                                            <input type="text" class="form-control" id="listingLocation" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="listingPhone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="listingPhone">
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="localPickup">
+                                                <label class="form-check-label" for="localPickup">
+                                                    Local pickup only
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="showPage('marketplace'); return false;">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Create Listing</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle page navigation -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Community Exchange{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-3">Welcome to Community Exchange</h1>
+        <p class="lead">A platform for community-based trading and sharing.</p>
+        <div class="mt-4">
+            <a href="/marketplace" class="btn btn-primary btn-lg me-2">Browse Marketplace</a>
+            <a href="/register" class="btn btn-outline-primary btn-lg">Join Community</a>
+        </div>
+    </div>
+
+    <div class="row g-4 py-5">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title h4 mb-4">Current Features</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="bi bi-box-seam text-primary me-2"></i>
+                            List items or services for trade or giveaway
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-people text-primary me-2"></i>
+                            Connect with local community members
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-arrow-left-right text-primary me-2"></i>
+                            Easy trading system
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title h4 mb-4">Coming Soon</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="bi bi-star text-muted me-2"></i>
+                            User rating system
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-geo-alt text-muted me-2"></i>
+                            Geolocation for nearby listings
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-credit-card text-muted me-2"></i>
+                            Integrated payment system
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

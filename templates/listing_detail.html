@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}{{ listing.title }} - Community Exchange{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title mb-3">{{ listing.title }}</h2>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="badge bg-primary">{{ listing.type }}</span>
+                        <span class="text-muted">{{ listing.location }}</span>
+                    </div>
+                    
+                    {% if listing.images %}
+                    <div class="mb-4">
+                        {% set image_list = listing.images if listing.images is iterable and listing.images is not string else (listing.images.split(',') if listing.images else []) %}
+                        {% if image_list|length > 0 %}
+                            <img src="{{ image_list[0] }}" class="img-fluid rounded" alt="{{ listing.title }}">
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    <h5>Description</h5>
+                    <p class="mb-4">{{ listing.description }}</p>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h5>Details</h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Category:</strong> {{ listing.category }}</li>
+                                {% if listing.condition %}
+                                <li><strong>Condition:</strong> {{ listing.condition }}</li>
+                                {% endif %}
+                                <li><strong>Value:</strong> ${{ "%.2f"|format(listing.estimated_value or 0) }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Trade Information</h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Free Item:</strong> {{ "Yes" if listing.is_free else "No" }}</li>
+                                <li><strong>Willing to Trade:</strong> {{ "Yes" if listing.willing_to_trade else "No" }}</li>
+                                {% if listing.trade_preferences %}
+                                <li><strong>Trade Preferences:</strong> {{ listing.trade_preferences }}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        {% if current_user.id == listing.user_id %}
+                            <a href="{{ url_for('edit_listing', listing_id=listing.id) }}" class="btn btn-primary">Edit Listing</a>
+                            <form action="{{ url_for('delete_listing_view', listing_id=listing.id) }}" method="POST" style="display: inline;">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this listing?')">Delete Listing</button>
+                            </form>
+                        {% endif %}
+                        <a href="{{ url_for('marketplace') }}" class="btn btn-outline-secondary">Back to Marketplace</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Owner Information</h5>
+                    {% if listing.user %}
+                        <p class="mb-2"><strong>Listed by:</strong> {{ listing.user.username }}</p>
+                        <p class="mb-2"><strong>Location:</strong> {{ listing.location }}</p>
+                    {% else %}
+                        <p class="mb-2"><strong>Listed by:</strong> Anonymous</p>
+                        <p class="mb-2"><strong>Location:</strong> {{ listing.location }}</p>
+                    {% endif %}
+                    <p class="mb-0"><strong>Listed on:</strong> {{ listing.created_at }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this listing?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form action="{{ url_for('delete_listing_view', listing_id=listing.id) }}" method="POST" style="display: inline;">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

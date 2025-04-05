@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Create Listing - Community Exchange{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Create New Listing</h2>
+                    <form method="post" action="{{ url_for('create_listing_view') }}" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Title</label>
+                                <input type="text" name="title" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Type</label>
+                                <select name="type" class="form-select" required>
+                                    <option value="item">Item</option>
+                                    <option value="service">Service</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea name="description" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Category</label>
+                                <select name="category" class="form-select" required>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="furniture">Furniture</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="books">Books</option>
+                                    <option value="services">Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Location</label>
+                                <input type="text" name="location" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Condition (for items)</label>
+                                <select name="condition" class="form-select">
+                                    <option value="">Not Applicable</option>
+                                    <option value="new">New</option>
+                                    <option value="like_new">Like New</option>
+                                    <option value="good">Good</option>
+                                    <option value="fair">Fair</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Estimated Value ($)</label>
+                                <input type="number" name="estimated_value" class="form-control" step="0.01">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" name="is_free" class="form-check-input" id="isFree">
+                                <label class="form-check-label" for="isFree">This is a free item/service</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" name="willing_to_trade" class="form-check-input" id="willingToTrade" checked>
+                                <label class="form-check-label" for="willingToTrade">Willing to trade</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Trade Preferences</label>
+                            <textarea name="trade_preferences" class="form-control" rows="2" placeholder="What would you like in exchange? (Optional)"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Images</label>
+                            <input type="file" name="images" class="form-control" multiple accept="image/*">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Create Listing</button>
+                            <a href="{{ url_for('marketplace') }}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
